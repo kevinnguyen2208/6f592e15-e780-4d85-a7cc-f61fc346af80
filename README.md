@@ -5,16 +5,22 @@
 **Achieved Goals:**
 - Github actions have been set up to test for successful build, code linting, code coverage and unit tests.
 - Solution containerisation using Docker
-- Code linting 
-- Code coverage reporting - 66%, but the Service folder where the Longest Increasing Subsequence logic is contained is covered 100%.
+- Code linting using .NET Lint https://github.com/zyactions/dotnet-lint
+ ![image](https://github.com/kevinnguyen2208/6f592e15-e780-4d85-a7cc-f61fc346af80/assets/54177223/b1185495-e71a-4c82-989f-6de3aee8fdd0)
+- Code coverage reporting - 66%, but the Service folder where the Longest Increasing Subsequence logic is contained is covered 100%. Visualisation is made using [cover](https://coveralls.io/)
 
+![image](https://github.com/kevinnguyen2208/6f592e15-e780-4d85-a7cc-f61fc346af80/assets/54177223/c9be4ddb-9bdc-4f75-a35d-181491ab4218)
 ![image](https://github.com/kevinnguyen2208/6f592e15-e780-4d85-a7cc-f61fc346af80/assets/54177223/6eaa9716-f691-435c-8ea3-7109e1c66044)
+- Unit testings have been set up as required for the provided 11 test cases. An additional set of test cases (7 tests) is used to test input validation.
+
+![image](https://github.com/kevinnguyen2208/6f592e15-e780-4d85-a7cc-f61fc346af80/assets/54177223/3254636d-dfd3-4dd2-b30e-0b589747db17)
+
 
 **Setup:**
  - Clone this repo
  - Run the project in Visual Studio by clicking the Start in Visual Studio or run the following command line
    `dotnet run`
- - Unit tests have been set up as required for the provided 11 test cases. An additional set of test cases (7 tests) is used to test input validation. Run these tests by clicking the Test button -> Run All Tests or run the following command line
+ - Run unit tests by clicking the Test button -> Run All Tests or run the following command line
    `dotnet test` 
  - Test using Swagger UI by clicking the GET /api -> Click Try it out button -> Enter an array of numbers into Input textbox -> Click Execute button. Result will be shown into the Response section.
    ![image](https://github.com/kevinnguyen2208/6f592e15-e780-4d85-a7cc-f61fc346af80/assets/54177223/acd56be3-d06e-405c-a60b-ba1b72291065)
