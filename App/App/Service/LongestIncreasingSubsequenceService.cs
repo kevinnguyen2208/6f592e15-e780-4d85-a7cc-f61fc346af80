@@ -27,7 +27,7 @@ namespace App.Service
 
             return true;
         }
-             
+
         /// <summary>
         /// Convert input into an array by stripping out "" and space in-between numbers
         /// </summary>
