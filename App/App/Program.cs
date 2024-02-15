@@ -14,11 +14,8 @@ builder.Services.AddScoped<ILongestIncreasingSubsequenceService, LongestIncreasi
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
+app.UseSwagger();
+app.UseSwaggerUI();
 
 app.UseCors(options =>
 options.WithOrigins("http://localhost:4800")
