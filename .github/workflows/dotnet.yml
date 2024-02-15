@@ -24,16 +24,16 @@ jobs:
         - name: Setup .NET Core SDK
           uses: actions/setup-dotnet@v3
           with:
-            dotnet-version: 6.x
+            dotnet-version: 7.x
 
         - name: Build code
-          run: dotnet build --configuration Release --no-restore
+          run: dotnet build App/App/App.csproj --configuration Release --no-restore
 
         - name: Testing code
           run: |
             echo "## ❔ Test results" >> $GITHUB_STEP_SUMMARY
-            dotnet test --configuration Release -v minimal --no-build --logger GitHubActions '/p:CollectCoverage=true;CoverletOutputFormat="json,lcov,cobertura";MergeWith=${{github.workspace}}/coverage.json;CoverletOutput=${{github.workspace}}/coverage' tests/Sonos.Base.Tests -- RunConfiguration.CollectSourceInformation=true
-            dotnet test --configuration Release -v minimal --no-build --logger GitHubActions '/p:CollectCoverage=true;CoverletOutputFormat="json,lcov,cobertura";MergeWith=${{github.workspace}}/coverage.json;CoverletOutput=${{github.workspace}}/coverage' tests/Sonos.Base.Events.Http.Tests -- RunConfiguration.CollectSourceInformation=true  
+            dotnet test App/AppTest/AppTest.csproj --configuration Release -v minimal --no-build --logger GitHubActions '/p:CollectCoverage=true;CoverletOutputFormat="json,lcov,cobertura";MergeWith=${{github.workspace}}/coverage.json;CoverletOutput=${{github.workspace}}/coverage' tests/Sonos.Base.Tests -- RunConfiguration.CollectSourceInformation=true
+            dotnet test App/AppTest/AppTest.csproj --configuration Release -v minimal --no-build --logger GitHubActions '/p:CollectCoverage=true;CoverletOutputFormat="json,lcov,cobertura";MergeWith=${{github.workspace}}/coverage.json;CoverletOutput=${{github.workspace}}/coverage' tests/Sonos.Base.Events.Http.Tests -- RunConfiguration.CollectSourceInformation=true  
 
         - name: Code Coverage report
           run: |
