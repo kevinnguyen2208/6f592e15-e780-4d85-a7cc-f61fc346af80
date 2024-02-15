@@ -2,7 +2,10 @@
 
 **Purpose:** Given an array of numbers, output the earliest recognised longest increasing subsequence.
 
+**Support:** This project is built using C# .NET 7.0. Unit test is XUnit.
+
 **Achieved Goals:**
+- Time Complexity: O(n), where n is the length of the input array. We iterate through the input array only once.
 - Github actions have been set up to test for successful build, code linting, code coverage and unit tests.
 - Solution containerisation using Docker
 - Code linting using .NET Lint https://github.com/zyactions/dotnet-lint
@@ -13,7 +16,8 @@
 ![image](https://github.com/kevinnguyen2208/6f592e15-e780-4d85-a7cc-f61fc346af80/assets/54177223/6eaa9716-f691-435c-8ea3-7109e1c66044)
 - Unit testings have been set up as required for the provided 11 test cases. An additional set of test cases (7 tests) is used to test input validation.
 
-![image](https://github.com/kevinnguyen2208/6f592e15-e780-4d85-a7cc-f61fc346af80/assets/54177223/3254636d-dfd3-4dd2-b30e-0b589747db17)
+![image](https://github.com/kevinnguyen2208/6f592e15-e780-4d85-a7cc-f61fc346af80/assets/54177223/8456740d-245f-49ed-acaa-2daa0bc7842f)
+![image](https://github.com/kevinnguyen2208/6f592e15-e780-4d85-a7cc-f61fc346af80/assets/54177223/b1863efb-461e-4362-8929-f3f4629cdb5c)
 
 
 **Setup:**
@@ -24,6 +28,7 @@
    `dotnet test` 
  - Test using Swagger UI by clicking the GET /api -> Click Try it out button -> Enter an array of numbers into Input textbox -> Click Execute button. Result will be shown into the Response section.
    ![image](https://github.com/kevinnguyen2208/6f592e15-e780-4d85-a7cc-f61fc346af80/assets/54177223/acd56be3-d06e-405c-a60b-ba1b72291065)
+
 
 **Docker containerisation setup:**
  - Navigate into the App folder that contains Dockerfile
