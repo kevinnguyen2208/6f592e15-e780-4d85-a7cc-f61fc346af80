@@ -23,6 +23,6 @@ jobs:
       - name: Install dependencies
         run: dotnet restore App/App.sln
       - name: Build
-        run: dotnet build App/App.csproj --configuration Release --no-restore
+        run: dotnet build App/App/App.csproj --configuration Release --no-restore
       - name: Test with the dotnet CLI
-        run: dotnet test ./App.sln --configuration Release --no-restore
+        run: dotnet test App/App.sln --configuration Release --no-restore
