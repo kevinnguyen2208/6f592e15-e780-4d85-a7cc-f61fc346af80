@@ -7,6 +7,7 @@
 - Solution containerisation using Docker
 - Code linting 
 - Code coverage reporting - 66%, but the Service folder where the Longest Increasing Subsequence logic is contained is covered 100%.
+
 ![image](https://github.com/kevinnguyen2208/6f592e15-e780-4d85-a7cc-f61fc346af80/assets/54177223/6eaa9716-f691-435c-8ea3-7109e1c66044)
 
 **Setup:**
@@ -19,6 +20,7 @@
    ![image](https://github.com/kevinnguyen2208/6f592e15-e780-4d85-a7cc-f61fc346af80/assets/54177223/acd56be3-d06e-405c-a60b-ba1b72291065)
 
 **Docker containerisation setup:**
+ - Navigate into the App folder that contains Dockerfile
  - Run the following command line to build the Docker image
    `docker build -t app-image .`     
 
