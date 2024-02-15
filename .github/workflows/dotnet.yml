@@ -25,9 +25,9 @@ jobs:
       - name: Build
         run: dotnet build App/App/App.csproj
       - name: Run automated unit and integration tests
-        run: dotnet test App/AppTest/AppTest.csproj  /p:CollectCoverage=true /p:CoverletOutput=TestResults/ /p:CoverletOutputFormat=lcov
+        run: dotnet test App/AppTest/AppTest.csproj /p:CollectCoverage=true /p:CoverletOutput=TestResults/ /p:CoverletOutputFormat=lcov
       - name: Publish coverage report to coveralls.io   
         uses: coverallsapp/github-action@master   
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }} 
-          path-to-lcov: App/AppTest/coverage.info 
+          path-to-lcov: App/AppTest/TestResults/coverage.info 
