@@ -41,48 +41,46 @@ namespace App.Service
         /// </summary>
         private int[] GenerateOutput(int[] input)
         {
-            List<int> list = new List<int>();
-            List<int> longestList = new List<int>();
+            List<int> lis = new List<int>(); //longest increasing subsequence list
+            List<int> currentSeq = new List<int>(); //current subsequence list
 
-            // Initialize a variable to keep track of the length of the longest increasing subsequence
-            int highestCount = 1;
-
-            // Loop through each element in the input array
-            for (int i = 0; i < input.Length; i++)
+            for (int i = 0; i < input.Length - 1; i++)
             {
-                // Add the current element to the current increasing subsequence
-                list.Add(input[i]);
-
-                // Iterate through the elements following the current one
-                for (int j = i + 1; j < input.Length; j++)
+                // Check if the current element is less than the next element
+                if (input[i] < input[i + 1])
                 {
-                    // If the next element is greater than the current one, add it to the subsequence
-                    if (input[i] < input[j])
-                    {
-                        list.Add(input[j]);
-                    }
-                    else
-                    {
-                        // If the next element is not greater, break out of the inner loop
-                        break;
-                    }
-                    // Update the outer loop index to the current inner loop index
-                    i = j;
+                    // Add it to the current sequence
+                    currentSeq.Add(input[i]);
                 }
-
-                // Compare the length of the current increasing subsequence with the longest one found so far
-                if (highestCount < list.Count)
+                else
                 {
-                    // If the current subsequence is longer, update the longest subsequence
-                    highestCount = list.Count;
-                    longestList = new List<int>(list);
-                }
+                    // Add the current element to the current sequence
+                    currentSeq.Add(input[i]);
 
-                // Clear the current subsequence to start building a new one in the next iteration
-                list.Clear();
+                    // Check if the length of the current sequence is greater than the length of the LIS
+                    if (currentSeq.Count > lis.Count)
+                    {
+                        // Update the LIS
+                        lis = new List<int>(currentSeq);
+                    }
+
+                    // Clear the current sequence to start a new one
+                    currentSeq.Clear();
+                }
             }
 
-            return longestList.ToArray();
+            // Include the last element in the current sequence
+            currentSeq.Add(input[input.Length - 1]);
+
+            // Check if the length of the current sequence is greater than the length of the LIS
+            if (currentSeq.Count > lis.Count)
+            {
+                // Update the LIS
+                lis = new List<int>(currentSeq);
+            }
+
+            // Convert the LIS list to an array and return it
+            return lis.ToArray();
         }
     }
 }
