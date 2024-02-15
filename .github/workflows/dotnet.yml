@@ -23,6 +23,11 @@ jobs:
       - name: Install dependencies
         run: dotnet restore App/App.sln
       - name: Build
-        run: dotnet build App/App/App.csproj --configuration Release --no-restore
-      - name: Test with the dotnet CLI
-        run: dotnet test App/App.sln --configuration Release --no-restore
+        run: dotnet build App/App/App.csproj
+      - name: Run automated unit and integration tests
+        run: dotnet test App/AppTest/AppTest.csproj  /p:CollectCoverage=true /p:CoverletOutput=TestResults/ /p:CoverletOutputFormat=lcov
+      - name: Publish coverage report to coveralls.io   
+        uses: coverallsapp/github-action@master   
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }} 
+          path-to-lcov: FeatureFlags/FeatureFlags.Tests/TestResults/coverage.info 
