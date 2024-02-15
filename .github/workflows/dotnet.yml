@@ -31,3 +31,8 @@ jobs:
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }} 
           path-to-lcov: App/AppTest/TestResults/coverage.info 
+      - name: .NET Lint
+        uses: zyactions/dotnet-lint@v1
+        with:
+          workspace: App/App/App.csproj
+          implicit-restore: true
